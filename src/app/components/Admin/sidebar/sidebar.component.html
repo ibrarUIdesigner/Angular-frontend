@@ -1,0 +1,14 @@
+<div class="sidebar-container">
+	<ul class="sidebar-menu">
+		<li
+			*ngFor="let menu of sidemenu; let i = index"
+			routerLinkActive="active"
+			[routerLinkActiveOptions]="i == 0 ? { exact: true } : { exact: false }"
+		>
+			<a [routerLink]="menu.routerLink">
+				<span class="menu-icon"><i class="fa" [ngClass]="menu.icon"></i></span>
+				<span class="menu-text">{{ menu.name }}</span>
+			</a>
+		</li>
+	</ul>
+</div>

@@ -1,0 +1,13 @@
+.topbar {
+	height: 60px;
+	max-height: 60px;
+	width: calc(100% - 200px);
+	background-color: transparent;
+	float: right;
+	line-height: 60px;
+	padding: 0 20px;
+	display: flex;
+	align-items: center;
+	/* filter: blur(10px); */
+	border-bottom: 1px solid #fff;
+}

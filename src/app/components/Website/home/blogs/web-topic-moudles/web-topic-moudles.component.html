@@ -1,0 +1,39 @@
+<div class="container" *ngIf="articlesByModules">
+	<div class="row">
+		<div class="col-sm-12">
+			<div class="topic-details">
+				<h1>{{ articlesByModules.title }}</h1>
+				<p>{{ articlesByModules.description }}</p>
+			</div>
+		</div>
+		<div class="col-sm-9">
+			<div
+				class="module-holder"
+				*ngFor="let module of articlesByModules.modules; let i = index"
+			>
+				<div class="module-header">
+					<div class="module-icons">
+						<span class="topic-icon"><i class="fa fa-timeline"></i></span>
+					</div>
+					<div class="module-header-content">
+						<span>Module {{ i + 1 }}</span>
+						<strong class="portfolio__sub-heading">{{ module.title }}</strong>
+					</div>
+				</div>
+				<div class="module-body">
+					<ul class="articles-list">
+						<li *ngFor="let article of module.articles">
+							<a [routerLink]="['../../articles', article._id]"
+								><i class="fa fa-book"></i><span>{{ article.title }}</span>
+								<span>{{ article.views }} views</span></a
+							>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<app-right-bar></app-right-bar>
+		</div>
+	</div>
+</div>

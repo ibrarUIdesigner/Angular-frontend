@@ -1,1 +1,66 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~bootstrap/dist/css/bootstrap.min.css';
+/* Option 2: Import via CSS */
+@import url('https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css');
+
+@import 'ngx-toastr/toastr';
+body {
+	background: #f8f8f8;
+	margin: auto;
+	font-family: 'Inter';
+	color: #44566c;
+}
+@font-face {
+	font-family: mainHeading;
+	src: url('assets/Casual-Regular.ttf');
+}
+.portfolio__primary-bg {
+	background-color: #667eea !important;
+	color: #f8f8f8;
+}
+
+.portfolio__secondary-bg {
+	background-color: rgb(255, 89, 115) !important;
+	color: #f8f8f8;
+}
+
+.mb-2 {
+	margin-bottom: 20px !important;
+}
+.mr-1 {
+	margin-right: 10px;
+}
+.float-right {
+	float: right !important;
+}
+p {
+	line-height: 25px;
+}
+.container {
+	width: 1306px !important;
+}
+.portfolio__sub-heading {
+	font-size: 20px;
+	line-height: 25px;
+	margin-bottom: 30px;
+	color: #44566c;
+	display: block;
+}
+
+@media screen and (max-width: 1000px) {
+	.container {
+		width: auto !important;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.container {
+		width: auto !important;
+	}
+	.portfolio__sub-heading {
+		margin-bottom: 15px;
+	}
+	.services-section {
+		margin-top: 25px;
+	}
+}

@@ -1,0 +1,30 @@
+<app-content>
+	<div class="content-display">
+		<table
+			class="row-border hover"
+			[dtOptions]="dtOptions"
+			[dtTrigger]="dtTrigger"
+			datatable
+		>
+			<thead>
+				<tr>
+					<th>title</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let article of articles">
+					<td>{{ article.title }}</td>
+					<td>
+						<a
+							href="javascript:void(0)"
+							(click)="remvoveArticle(article)"
+							class="btn btn-danger"
+							><i class="fa fa-trash"></i
+						></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</app-content>

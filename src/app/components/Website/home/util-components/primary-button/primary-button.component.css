@@ -1,0 +1,17 @@
+.her0-cta-btn {
+	background: #667eea;
+	border-radius: 5px;
+	padding: 8px 15px;
+	border: none;
+}
+
+.her0-cta-btn > span {
+	margin-left: 10px;
+	color: #fff;
+	font-size: 16px;
+	font-weight: 600;
+	display: inline-block;
+}
+.her0-cta-btn > img {
+	display: inline-block;
+}

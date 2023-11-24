@@ -1,0 +1,176 @@
+<app-content>
+	<div class="content-display">
+		<a
+			class="btn btn-back mb-2 portfolio__primary-bg float-right"
+			routerLink="../blogs/create-blogs"
+		>
+			Create
+		</a>
+		<table
+			datatable
+			class="row-border hover"
+			[dtOptions]="dtOptions"
+			[dtTrigger]="dtTrigger"
+		>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Category</th>
+					<th>Views</th>
+					<th>Image</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let blog of allBlogs">
+					<td>{{ blog.title }}</td>
+					<td>{{ blog.category }}</td>
+					<td>{{ blog.views }}</td>
+					<td>
+						<img
+							style="
+								width: 50px;
+								height: 50px;
+								border-radius: 10px;
+								object-fit: cover;
+							"
+							[src]="'http://localhost:5000/uploads/' + blog['blog_snaps']"
+							alt=""
+						/>
+					</td>
+					<td>
+						<a
+							data-toggle="modal"
+							data-target="#myModalblogs"
+							href="javascript:void(0)"
+							class="btn portfolio__primary-bg mr-1"
+							(click)="getBlog($event, blog)"
+							><i class="bi bi-pencil"></i></a
+						><a
+							(click)="deleteBlog($event, blog)"
+							class="btn portfolio__secondary-bg mr-1"
+							href="#"
+							><i class="bi bi-trash"></i
+						></a>
+						<a
+							class="btn btn-success"
+							data-toggle="modal"
+							(click)="getBlog($event, blog)"
+							data-target="#myModalblogsToModule"
+							href="javascript:void(0)"
+							><i class="fa fa-timeline"></i
+						></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</app-content>
+
+<app-modal-popup
+	[modalHeading]="'Add to Module'"
+	[modalId]="'blogsToModule'"
+	[closeModal]="closeModal"
+>
+	<div class="modal-body">
+		<form [formGroup]="blogsToModule" id="blogToModuleForm">
+			<label for="">Select Module</label>
+			<select class="form-control" formControlName="id">
+				<option [value]="module._id" *ngFor="let module of allModules">
+					{{ module.title }}
+				</option>
+			</select>
+		</form>
+	</div>
+
+	<button
+		(click)="shiftBlogsToModules()"
+		type="button"
+		class="btn btn-primary action-button"
+		form="blogToModuleForm"
+	>
+		Add
+	</button>
+</app-modal-popup>
+
+<app-modal-popup
+	[modalHeading]="'Update Blog'"
+	[modalId]="'blogs'"
+	[closeModal]="closeModal"
+>
+	<div class="modal-body">
+		<form action="" [formGroup]="blogsForm" *ngIf="blog" id="blogForm">
+			<div class="form-group">
+				<label for="">Title</label>
+				<input
+					type="text"
+					formControlName="title"
+					[(ngModel)]="blog.title"
+					class="form-control"
+				/>
+			</div>
+
+			<div class="form-group">
+				<label for="">Category</label>
+				<input
+					formControlName="category"
+					[(ngModel)]="blog.category"
+					type="text"
+					class="form-control"
+				/>
+			</div>
+
+			<div class="form-group">
+				<label for="">Description</label>
+				<textarea
+					[(ngModel)]="blog.description"
+					class="form-control"
+					name=""
+					id=""
+					cols="30"
+					rows="5"
+					formControlName="description"
+				></textarea>
+			</div>
+
+			<div class="form-group">
+				<angular-editor
+					[config]="config"
+					[(ngModel)]="blog.details"
+					formControlName="htmlContent"
+					formControlName="details"
+				></angular-editor>
+			</div>
+
+			<div class="form-group">
+				<label for="">Portfolio Snaps</label>
+				{{ blog.blog_snaps }}
+				<input
+					(change)="onSnaps($event)"
+					type="file"
+					class="form-control"
+					formControlName="blog_snaps"
+				/>
+				<img
+					style="
+						width: 100px;
+						height: 100px;
+						border-radius: 10px;
+						object-fit: cover;
+						margin-top: 15px;
+					"
+					[src]="'http://localhost:5000/uploads/' + blog.blog_snaps"
+					alt=""
+				/>
+			</div>
+		</form>
+	</div>
+	<button
+		(click)="updateBlog()"
+		type="button"
+		form="blogForm"
+		class="btn btn-primary action-button"
+	>
+		Update
+	</button>
+</app-modal-popup>

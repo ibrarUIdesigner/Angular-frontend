@@ -1,0 +1,47 @@
+<div class="container">
+	<app-sub-banner
+		[mainHeading]="'Latest Articles'"
+		[routeName]="'Articles'"
+	></app-sub-banner>
+
+	<!-- ALL BLOGS -->
+	<div class="row">
+		<div class="col-sm-9">
+			<div class="blog-container" *ngFor="let blog of allBlogs; let i = index">
+				<div class="blog-image-holder">
+					<img
+						[src]="'http://localhost:5000/uploads/' + blog.blog_snaps"
+						alt=""
+					/>
+				</div>
+				<div class="content-holder">
+					<span
+						class="category"
+						[ngStyle]="{
+							backgroundColor: getBGcolor(i),
+							color: getTEXTcolor(getBGcolor(i))
+						}"
+						>{{ blog.category }}</span
+					>
+					<a [routerLink]="['../articles', blog._id]">
+						<h1>
+							{{ blog.title }}
+						</h1>
+					</a>
+					<div class="date-time">
+						<span class="created-date"
+							><i class="bi bi-calendar2-event"></i> {{ blog.createdAt | date }}
+						</span>
+						<span class="created-date"
+							><i class="bi bi-alarm"></i> {{ blog.readingTime }} min read</span
+						>
+					</div>
+					<p class="main-content">{{ blog.description }} ...</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-3">
+			<app-right-bar></app-right-bar>
+		</div>
+	</div>
+</div>

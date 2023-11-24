@@ -1,0 +1,41 @@
+<app-content>
+	<div class="content-display">
+		<a
+			class="btn btn-back mb-2 portfolio__primary-bg float-right"
+			routerLink="../socials/create-social"
+		>
+			Create
+		</a>
+
+		<table
+			datatable
+			class="row-border hover"
+			[dtOptions]="dtOptions"
+			[dtTrigger]="dtTrigger"
+		>
+			<thead>
+				<tr>
+					<th>Brand</th>
+					<th>Profile Link</th>
+					<th>Icon</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let profile of allProfile">
+					<td>{{ profile['brand_name'] }}</td>
+					<td>{{ profile['profile_url'] }}</td>
+					<td><i class="fa-brands" [ngClass]="profile['icon']"></i></td>
+					<td>
+						<a
+							(click)="deleteSocial($event, profile)"
+							class="btn portfolio__secondary-bg"
+							href="#"
+							><i class="bi bi-trash"></i
+						></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</app-content>

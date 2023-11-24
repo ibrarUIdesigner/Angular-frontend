@@ -1,0 +1,21 @@
+<app-content>
+	<div class="content-display">
+		<div class="anaylytics-section">
+			<div
+				class="analtic-container"
+				*ngFor="let dashboard of analytics; let i = index"
+				[ngStyle]="{ backgroundColor: getBGColor(i) }"
+			>
+				<div class="analytic-header">
+					<strong>{{ dashboard['schema'] }}</strong>
+					<i class="bi" [ngClass]="dashboard['icon']"></i>
+				</div>
+
+				<h3>
+					{{ dashboard['count'] }}
+					<span class="last-activity">+ 2 last day</span>
+				</h3>
+			</div>
+		</div>
+	</div>
+</app-content>

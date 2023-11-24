@@ -1,0 +1,11 @@
+<section class="footer">
+	<div class="container">
+		<ul class="footer-container">
+			<li class="social-item" *ngFor="let social of socialItems">
+				<a [href]="social['profile_url']" target="_blank"
+					><i class="fa-brands" [ngClass]="social['icon']"></i
+				></a>
+			</li>
+		</ul>
+	</div>
+</section>

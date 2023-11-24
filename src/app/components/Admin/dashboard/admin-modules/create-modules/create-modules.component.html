@@ -1,0 +1,20 @@
+<app-content>
+	<div class="content-display">
+		<form [formGroup]="moduleForm" (ngSubmit)="createModule()">
+			<div class="form-group">
+				<label for="">Module Name</label>
+				<input type="text" class="form-control" formControlName="title" />
+			</div>
+			<div class="form-group">
+				<label for="">Select Articles</label>
+				<select class="form-control" multiple formControlName="articles">
+					<option *ngFor="let blog of allBlogs" [value]="blog._id">
+						{{ blog.title }}
+					</option>
+				</select>
+			</div>
+
+			<button class="btn btn-primary">Create</button>
+		</form>
+	</div>
+</app-content>

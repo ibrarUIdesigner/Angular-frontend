@@ -1,0 +1,79 @@
+<app-content>
+	<div class="content-display">
+		<button
+			class="btn btn-primary float-right mb-2"
+			[routerLink]="['../topics/create-topics']"
+		>
+			Create
+		</button>
+
+		<table
+			class="row-border hover"
+			[dtOptions]="dtOptions"
+			[dtTrigger]="dtTrigger"
+			datatable
+		>
+			<thead>
+				<tr>
+					<th>Aitle</th>
+					<th>Modules</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let topic of topics">
+					<td>{{ topic.title }}</td>
+					<td>{{ topic.modules.length }}</td>
+					<td>
+						<a href="javascript:void(0)" class="btn portfolio__primary-bg mr-1"
+							><i class="fa-solid fa-retweet"></i
+						></a>
+						<a
+							data-toggle="modal"
+							data-target="#myModaltopics"
+							href="javascript:void(0)"
+							(click)="getTopic(topic)"
+							class="btn portfolio__primary-bg mr-1"
+							><i class="bi bi-pencil"></i
+						></a>
+						<a
+							(click)="deleteTopic(topic)"
+							class="btn portfolio__secondary-bg"
+							href="javascript:void(0)"
+							><i class="bi bi-trash"></i
+						></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</app-content>
+
+<app-modal-popup
+	[modalHeading]="'Update Topic'"
+	[modalId]="'topics'"
+	[closeModal]="closeModal"
+	*ngIf="singleTopic"
+>
+	<div class="modal-body">
+		<form
+			action=""
+			[formGroup]="topicForm"
+			id="TopicForm"
+			(ngSubmit)="updateTopic()"
+		>
+			<div class="form-group">
+				<label for="">Title</label>
+				<input
+					type="text"
+					formControlName="title"
+					class="form-control"
+					[(ngModel)]="singleTopic.title"
+				/>
+			</div>
+		</form>
+	</div>
+	<button type="submit" form="TopicForm" class="btn btn-primary action-button">
+		Update
+	</button>
+</app-modal-popup>

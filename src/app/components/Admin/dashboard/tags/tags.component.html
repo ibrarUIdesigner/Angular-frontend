@@ -1,0 +1,39 @@
+<app-content>
+	<div class="content-display">
+		<a
+			class="btn btn-back mb-2 portfolio__primary-bg float-right"
+			routerLink="../tags/create-tags"
+		>
+			Create
+		</a>
+
+		<table
+			datatable
+			class="row-border hover"
+			[dtOptions]="dtOptions"
+			[dtTrigger]="dtTrigger"
+		>
+			<thead>
+				<tr>
+					<th>Index</th>
+					<th>Name</th>
+					<th>Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let tag of allTags; let i = index">
+					<td>{{ i + 1 }}</td>
+					<td>{{ tag.name }}</td>
+					<td>
+						<a
+							(click)="deleteTag($event, tag)"
+							class="btn portfolio__secondary-bg"
+							href="#"
+							><i class="bi bi-trash"></i
+						></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</app-content>

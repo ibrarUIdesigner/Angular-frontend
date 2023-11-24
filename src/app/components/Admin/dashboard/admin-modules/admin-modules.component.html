@@ -1,0 +1,117 @@
+<app-content>
+	<div class="content-display">
+		<button
+			class="btn btn-primary float-right mb-2"
+			[routerLink]="['../modules/create-modules']"
+		>
+			Create
+		</button>
+		<table
+			datatable
+			class="row-border hover"
+			[dtOptions]="dtOptions"
+			[dtTrigger]="dtTrigger"
+		>
+			<thead>
+				<tr>
+					<th>Title</th>
+					<th>Total Articles</th>
+					<th>Actions</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let module of modules">
+					<td>{{ module.title }}</td>
+					<td>{{ module.articles.length }}</td>
+					<td>
+						<a
+							[routerLink]="['../modules', module._id]"
+							class="btn btn-primary mr-1"
+							><i class="fa-solid fa-retweet"></i
+						></a>
+
+						<a
+							href="javascript:void(0)"
+							class="btn btn-success mr-1"
+							(click)="getModule(module)"
+							data-target="#myModalmoduleTopTopic"
+							data-toggle="modal"
+							><i class="fa-regular fa-square-plus"></i
+						></a>
+
+						<a
+							data-toggle="modal"
+							data-target="#myModaltopicsForm"
+							href="javascript:void(0)"
+							(click)="getModule(module)"
+							class="btn portfolio__primary-bg mr-1"
+							><i class="bi bi-pencil"></i
+						></a>
+
+						<a
+							href="javascript:void(0)"
+							class="btn btn-danger"
+							(click)="deleteModule(module)"
+							><i class="fa-regular fa-trash-can"></i
+						></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</app-content>
+
+<app-modal-popup
+	[modalHeading]="'Add this Module to Topic'"
+	[modalId]="'moduleTopTopic'"
+	[closeModal]="closeModal"
+>
+	<div class="modal-body">
+		<form [formGroup]="moduleToTopicForm" id="moduleTopTopic">
+			<label for="">Select Topic</label>
+			<select class="form-control" formControlName="id">
+				<option [value]="module._id" *ngFor="let module of topics">
+					{{ module.title }}
+				</option>
+			</select>
+		</form>
+	</div>
+
+	<button
+		(click)="shiftModuleToTopic()"
+		type="button"
+		class="btn btn-primary action-button"
+		form="moduleTopTopic"
+	>
+		Shift to Topic
+	</button>
+</app-modal-popup>
+
+<app-modal-popup
+	[modalHeading]="'Update Module'"
+	[modalId]="'topicsForm'"
+	[closeModal]="closeModal"
+	*ngIf="moduleId"
+>
+	<div class="modal-body">
+		<form
+			action=""
+			[formGroup]="moduleForm"
+			id="TopicForm"
+			(ngSubmit)="updateModule()"
+		>
+			<div class="form-group">
+				<label for="">Title</label>
+				<input
+					type="text"
+					formControlName="title"
+					class="form-control"
+					[(ngModel)]="moduleId.title"
+				/>
+			</div>
+		</form>
+	</div>
+	<button type="submit" form="TopicForm" class="btn btn-primary action-button">
+		Update
+	</button>
+</app-modal-popup>

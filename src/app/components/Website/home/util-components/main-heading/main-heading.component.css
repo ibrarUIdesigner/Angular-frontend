@@ -1,0 +1,37 @@
+a.portfolio__secondary-button {
+	background-color: #e2e8f0;
+	padding: 10px 30px;
+	border-radius: 10px;
+	float: right;
+	font-weight: 500;
+	color: #44566c;
+	position: absolute;
+	right: 0;
+	transform: translateY(-50%);
+	top: 50%;
+}
+
+.portfolio__main-heading {
+	margin-top: 50px;
+	margin-bottom: 50px;
+	position: relative;
+}
+
+.portfolio__main-heading h3 {
+	margin: unset;
+	position: relative;
+	padding-left: 30px;
+	font-family: mainHeading;
+}
+
+.portfolio__main-heading h3::before {
+	content: '';
+	width: 5px;
+	height: 30px;
+	display: inline-block;
+	background-color: #e2e8f0;
+	position: absolute;
+	left: 0;
+	transform: translateY(-50%);
+	top: 50%;
+}

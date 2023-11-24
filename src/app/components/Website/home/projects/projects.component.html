@@ -1,0 +1,27 @@
+<div class="container">
+	<app-main-heading
+		[mainHeading]="'Projects'"
+		[isAll]="true"
+	></app-main-heading>
+
+	<div class="projects-section">
+		<div
+			class="project-container"
+			*ngFor="let project of getLatestProjects(); let i = index"
+			[ngStyle]="{ 'background-color': getColor(i) }"
+		>
+			<div class="project-content">
+				<strong class="portfolio__sub-heading">{{ project.title }}</strong>
+				<p>
+					{{ project.description }}
+				</p>
+				<app-primary-button
+					[routerLink]="project.demo_link"
+				></app-primary-button>
+			</div>
+			<div class="project-snap">
+				<img [src]="'http://localhost:5000/uploads/' + project.snaps" alt="" />
+			</div>
+		</div>
+	</div>
+</div>

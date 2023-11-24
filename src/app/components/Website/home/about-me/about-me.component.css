@@ -1,0 +1,49 @@
+.about-me {
+	background-color: #e3f0f2;
+	padding: 20px 23px;
+	margin-top: 50px;
+	border-radius: 10px;
+	overflow: hidden;
+}
+.about-me-container {
+	background-color: #fff;
+	padding: 25px;
+	border-radius: 10px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 80px;
+}
+
+.about-icons {
+	background-color: #fbfbfb;
+	border-radius: 5px;
+	padding: 7px;
+	display: inline-block;
+	margin-bottom: 30px;
+}
+
+.about-icons img {
+	margin-right: 18px;
+}
+.about-icons img:last-child {
+	margin: unset;
+}
+
+.about-skills-container strong {
+	display: block;
+	margin-bottom: 15px;
+}
+
+@media screen and (max-width: 600px) {
+	.about-icons {
+		margin-bottom: 15px;
+	}
+	.about-me-container {
+		flex-wrap: wrap;
+		gap: 20px;
+	}
+	.about-me {
+		margin-top: 25px;
+	}
+}

@@ -1,0 +1,24 @@
+<div class="navbar">
+	<div class="container">
+		<div class="navbar-brand">
+			<a routerLink=""><img src="assets/logo.png" alt="" /></a>
+		</div>
+
+		<!-- navbar links -->
+		<ul class="navbar-links nav navbar-nav navbar-right">
+			<li
+				*ngFor="let item of menu; let i = index"
+				routerLinkActive="active"
+				[routerLinkActiveOptions]="i == 0 ? { exact: true } : { exact: false }"
+			>
+				<a [routerLink]="item.routerLink"
+					><span> <i class="fa" [ngClass]="item.icon"></i> </span
+					><span class="nav-item-text">{{ item.name }}</span></a
+				>
+			</li>
+			<!-- <li>
+				<span><img src="assets/moon.svg" alt="" /></span>
+			</li> -->
+		</ul>
+	</div>
+</div>

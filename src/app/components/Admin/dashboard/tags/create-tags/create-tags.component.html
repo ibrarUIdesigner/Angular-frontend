@@ -1,0 +1,12 @@
+<app-content>
+	<div class="content-display">
+		<form [formGroup]="tagsForm" (ngSubmit)="createTags()">
+			<div class="form-group">
+				<label for="">Name</label>
+				<input class="form-control" formControlName="name" />
+			</div>
+
+			<button class="btn btn-primary">Create</button>
+		</form>
+	</div>
+</app-content>

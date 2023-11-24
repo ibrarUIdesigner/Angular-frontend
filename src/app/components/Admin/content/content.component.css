@@ -1,0 +1,15 @@
+.content-body {
+	width: calc(100% - 200px);
+	float: right;
+	padding: 20px;
+
+	margin-top: 20px;
+}
+
+.content-area {
+	background-color: #fff;
+	border-radius: 10px;
+	min-height: 550px;
+
+	padding: 20px;
+}

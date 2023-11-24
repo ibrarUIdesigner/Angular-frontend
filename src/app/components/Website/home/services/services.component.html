@@ -1,0 +1,28 @@
+<div class="container">
+	<app-main-heading [mainHeading]="'Services'"></app-main-heading>
+	<div class="services-section">
+		<div
+			class="service-cotnainer"
+			*ngFor="let service of services; let i = index"
+		>
+			<div class="service-heading">
+				<span
+					class="service-icon"
+					[ngStyle]="{ backgroundColor: getBackgroundColor(i) }"
+				>
+					<i class="bi" [ngClass]="service.icon"></i>
+				</span>
+				<strong class="portfolio__sub-heading">{{ service.title }}</strong>
+			</div>
+			<div class="service-description">
+				<p [innerHTML]="makeWordsBold(service.description)"></p>
+
+				<div class="skills-container">
+					<span class="skills" *ngFor="let skill of service.skills">{{
+						skill
+					}}</span>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
