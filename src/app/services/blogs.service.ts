@@ -13,7 +13,8 @@ interface Blog {
 	providedIn: 'root',
 })
 export class BlogsService {
-	baseURL = 'http://localhost:5000/api/';
+	// baseURL = 'http://72.255.1.111:8000/api/';
+	baseURL = 'http://72.255.1.111:8000/api/';
 
 	constructor(private http: HttpClient) {}
 

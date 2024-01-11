@@ -60,3 +60,13 @@ span.dot {
 	background-color: #44566c;
 	display: inline-block;
 }
+
+@media screen and (max-width: 600px) {
+	.heading-area strong {
+		font-size: 25px;
+	}
+
+	.sub-banner {
+		height: 250px;
+	}
+}

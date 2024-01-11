@@ -78,6 +78,7 @@
 		height: 60px;
 		padding: 0 10px;
 		z-index: 999;
+		box-shadow: 2px 1px 6px 2px #c7c7c766;
 	}
 
 	.navbar .container {

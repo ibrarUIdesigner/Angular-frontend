@@ -85,3 +85,9 @@
 .articles-list li:last-child {
 	border: unset;
 }
+
+@media screen and (max-width: 600px) {
+	.module-holder {
+		margin-bottom: 30px !important;
+	}
+}

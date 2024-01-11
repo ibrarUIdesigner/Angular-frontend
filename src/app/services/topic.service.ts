@@ -12,7 +12,8 @@ interface TOPICS {
 	providedIn: 'root',
 })
 export class TopicService {
-	baseURL = 'http://localhost:5000/api/';
+	// baseURL = 'http://72.255.1.111:8000/api/';
+	baseURL = 'http://72.255.1.111:8000/api/';
 	constructor(private http: HttpClient) {}
 
 	getTopics(): Observable<any> {

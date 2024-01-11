@@ -8,6 +8,11 @@ import { Component } from '@angular/core';
 export class NavbarComponent {
 	menu = [
 		{
+			icon: ' fa-house',
+			name: 'Home',
+			routerLink: '/',
+		},
+		{
 			icon: ' fa-briefcase',
 			name: 'Topics',
 			routerLink: '/topics',
@@ -23,10 +28,10 @@ export class NavbarComponent {
 		// 	routerLink: '/skills',
 		// },
 
-		{
-			icon: 'fa-pen-clip',
-			name: 'Be a writer',
-			routerLink: '/skills',
-		},
+		// {
+		// 	icon: 'fa-pen-clip',
+		// 	name: 'Be a writer',
+		// 	routerLink: '/skills',
+		// },
 	];
 }

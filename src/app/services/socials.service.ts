@@ -12,7 +12,8 @@ interface Social {
 	providedIn: 'root',
 })
 export class SocialsService {
-	baseURL = 'http://localhost:5000/api/';
+	// baseURL = 'http://72.255.1.111:8000/api/';
+	baseURL = 'http://72.255.1.111:8000/api/';
 	constructor(private http: HttpClient) {}
 
 	createSocilaProfile(data: any): Observable<any> {

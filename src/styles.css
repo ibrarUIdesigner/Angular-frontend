@@ -38,6 +38,7 @@ p {
 }
 .container {
 	width: 1306px !important;
+	min-width: 100%;
 }
 .portfolio__sub-heading {
 	font-size: 20px;

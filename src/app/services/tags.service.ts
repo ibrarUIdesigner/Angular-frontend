@@ -10,7 +10,8 @@ interface Tags {
 	providedIn: 'root',
 })
 export class TagsService {
-	baseURL = 'http://localhost:5000/api/';
+	// baseURL = 'http://72.255.1.111:8000/api/';
+	baseURL = 'http://72.255.1.111:8000/api/';
 	constructor(private http: HttpClient) {}
 
 	createTags(data: Tags): Observable<any> {

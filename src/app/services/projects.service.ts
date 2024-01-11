@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 	providedIn: 'root',
 })
 export class ProjectsService {
-	baseURL = 'http://localhost:5000/api/';
+	// baseURL = 'http://72.255.1.111:8000/api/';
+	baseURL = 'http://72.255.1.111:8000/api/';
 	constructor(private http: HttpClient) {}
 
 	getAllProjects(): Observable<any> {

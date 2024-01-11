@@ -7,12 +7,21 @@
 }
 .about-me-container {
 	background-color: #fff;
-	padding: 25px;
+	/* padding: 25px; */
 	border-radius: 10px;
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	gap: 80px;
+}
+
+.about-me-container .about-skills-container:nth-child(2) {
+	background-color: #e3f3f54f;
+	border-radius: 10px;
+}
+
+.about-skills-container {
+	padding: 24px;
 }
 
 .about-icons {

@@ -23,7 +23,10 @@
 		<strong class="portfolio__sub-heading">Top Articles</strong>
 		<div class="blogs-container" *ngFor="let top of topBlogs">
 			<div class="blog-image">
-				<img [src]="'http://localhost:5000/uploads/' + top.blog_snaps" alt="" />
+				<img
+					[src]="'http://72.255.1.111:8000/uploads/' + top.blog_snaps"
+					alt=""
+				/>
 			</div>
 			<div class="blog-content">
 				<a
